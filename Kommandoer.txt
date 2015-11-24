@@ -12,11 +12,25 @@ migrate
 startapp
 
 Videre arbeid:
-- sette opp git
+- Forms på nyheter
+- Polls
+- oppskrifter
 - Nettsiden må ha et mål!
-- designe "base.html"
+- designe "base.html" X
 - Nordlys varsel
 - Værmelding
 - Innlogging
 - Stigespill-planlegger
 - Få siden ut på nettet!
+- Renskrive kode
+- Skrive en fornuftig readme
+- Alt må kunne editeres!
+
+
+GIT: 
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sinderka/Master.git
+git push -u origin master
+

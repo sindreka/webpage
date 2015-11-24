@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
-{% block sidebar %}
-    {% for thisNews in news %}
-        {{ thisNews.getTitle }}
-    {% empty %}
-        Ingen nyheter
-    {% endfor %}
+{% block title %}
+Startside
 {% endblock %}
 
- {% block content %} HEEI {% endblock %} 
+ {% block content %} <p>{{startpage_text.startpage_text}}</p> {% endblock %} 
+
+{% block newsSidebar %}
+Nyheter
+{% endblock %}
+{% block pollsSidebar %}
+Polls
+{% endblock %}
