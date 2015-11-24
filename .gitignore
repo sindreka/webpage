@@ -1,6 +1,22 @@
+# Created by https://www.gitignore.io/api/django,python
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+
+### Database ###
+*.sqlite3
+
+
+### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so

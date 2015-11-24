@@ -1,0 +1,22 @@
+Internett adresse:
+http://127.0.0.1:8000/
+
+
+Kommandoer:
+cd D:\Internettside\henriette 
+D: dir
+D:\Python34\python.exe D:\Internettside\henriette\manage.py runserver
+
+makemigrations
+migrate
+startapp
+
+Videre arbeid:
+- sette opp git
+- Nettsiden må ha et mål!
+- designe "base.html"
+- Nordlys varsel
+- Værmelding
+- Innlogging
+- Stigespill-planlegger
+- Få siden ut på nettet!

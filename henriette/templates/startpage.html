@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+    {% for thisNews in news %}
+        {{ thisNews.getTitle }}
+    {% empty %}
+        Ingen nyheter
+    {% endfor %}
+{% endblock %}
+
+ {% block content %} HEEI {% endblock %} 
