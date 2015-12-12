@@ -25,6 +25,7 @@ Videre arbeid:
 - Renskrive kode
 - Skrive en fornuftig readme
 - Alt må kunne editeres!
+- En liste over mine prosjekter.
 
 
 GIT: 
@@ -34,3 +35,9 @@ git commit -m "first commit"
 git remote add origin https://github.com/sinderka/Master.git
 git push -u origin master
 
+
+Rekkefølge:
+
+Issues:
+Det er masse feil med linkene!
+Stemmer blir ikke lenger registrert!

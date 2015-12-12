@@ -3,12 +3,14 @@ from django.shortcuts import render
 # Create your views here.
 
 from .models import News
+from startpage.views import vote
 
-
-class NewsView(news):
+def NewsView(request):
     news = News.objects.all()
+    vote_info = vote(request)
     context = {
-    'news': news 
+    'news': news ,
+    'vote_info': vote_info,
     }
-    return render(request, 'news.html', context=context)
+    return render(request, 'newspage.html', context=context)
     
