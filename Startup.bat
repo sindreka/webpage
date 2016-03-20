@@ -1,3 +1,2 @@
-cd D:\Internettside\henriette 
-D: dir
-D:\Python34\python.exe D:\Internettside\henriette\manage.py runserver
+C:\Python34\python.exe C:\Users\Karlsen\Documents\GitHub\wobsite\henriette\manage.py runserver
+pause

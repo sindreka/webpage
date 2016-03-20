@@ -27,6 +27,17 @@ Videre arbeid:
 - Alt må kunne editeres!
 - En liste over mine prosjekter.
 
+Del det som må gjøres opp i små mål. 
+*design
+*funksjonalitet
+*raspberry pi server
+*Nå siden via internett
+
+design:
+-layout
+-farger/bilder
+-innhold
+
 
 GIT: 
 git init
