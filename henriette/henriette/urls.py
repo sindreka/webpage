@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^home/$', 'startpage.views.home', name='startpage'),
 	url(r'^$', 'startpage.views.home', name='startpage'),
 	url(r'^about/$', 'startpage.views.about', name='startpage'),
+	url(r'^edit/$', 'startpage.views.edit', name='startpage'),
 	url(r'^recipes/$', 'startpage.views.home', name='startpage'),
 	url(r'^private/$', 'startpage.views.home', name='startpage'),
 	url(r'^contact/$', 'startpage.views.home', name='startpage'),

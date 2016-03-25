@@ -14,3 +14,6 @@ class model_about(models.Model):
 	about_headline = models.CharField(max_length = 50)
 	about_text = models.TextField(max_length=1000)
 	about_pub_date = models.DateTimeField('date published')
+	
+#class model_edit(models.Model):
+#	edit_boolean = models.BooleanField()
