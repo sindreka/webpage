@@ -25,69 +25,63 @@ def gethomeText():
 		
 def about(request):
 	if request.method == 'POST':
-		return HttpResponseRedirect('/edit/')
+		form = about_headline_form()
+		return HttpResponseRedirect('/about/')
 	else:
 		form = about_headline_form()
-		about_text = getAboutText()
+		about_text = model_about.objects.all()
+		#pk = list(range(len(about_text),0,-1))
 		context = {
 			'about_text': about_text,
 			'form': form,
+		#	'pk': pk
 		}
 		return render(request, 'about.html', context=context)
 	
-def edit(request):
-	#if request.method == 'POST':
-		#form = about_headline_form(request.POST)
-		
-		#form_text = about_headline_form.text
-		#about_text = getAboutText()
-		#about_text.about_pub_date = timezone.now()
-		#about_text.about_pub_date = 'asfada'
-		#about_text.about_headline = form.save()
-		a = model_about.objects.all()[0]
+def edit(request,pk):
+		a = model_about.objects.get(pk = pk)
 		a.about_pub_date = datetime.datetime.now()
 		a.save()
 		f = about_headline_form(request.POST, instance=a)
-		
-		
 		if f.is_valid():
 			f.save()
 			return HttpResponseRedirect('/about/')
-	#else:
-		
 		form = about_headline_form()
-		about_text = getAboutText()
+		about_text = model_about.objects.get(pk=pk)
 		context = {
 			'about_text': about_text,
 			'form': form,
+			'pk': pk,
 		}
 		return render(request, 'edit.html', context=context)
+		
+def add(request):
+	if request.method == 'POST':
+		a = model_about()
+		a.about_pub_date = datetime.datetime.now()
+		f = about_headline_form(request.POST, instance=a)
+		if f.is_valid():
+			f.save()
+			return HttpResponseRedirect('/about/')
+		
+	form = about_headline_form(request.POST)
+	about_text = model_about.create_object
+	about_text.about_pub_date = datetime.datetime.now()
+	about_text.about_headline = 'Error1'
+	about_text.about_text = 'Error2'
+	context = {
+		'about_text': about_text,
+		}
+	return render(request, 'add.html', context=context)
 	
-	
-def getAboutText():
-    try:
-        return model_about.objects.get(pk=1)
-    except:
-        return model_about.objects.all()[0]
+def delete(request,pk):
+	a = model_about.objects.get(pk=pk)
+	a.delete()
+	return HttpResponseRedirect('/about/')
+
 		
 class about_headline_form(ModelForm):
 	class Meta:
 		model = model_about
 		fields = ['about_headline','about_text']
 		
-#class edit_form(ModelForm):
-#	class Meta:
-#		model = model_edit
-#		fields = ['edit_boolean']
- #def vote(request, question_id):
-    
-    # try:
-        # selected_choice = p.choice_set.get(pk=request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-        # # Redisplay the question voting form.
-        # return render(request, "startpage.html", 
-   
-        # # Always return an HttpResponseRedirect after successfully dealing
-        # # with POST data. This prevents data from being posted twice if a
-        # # user hits the Back button.
-        # return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
