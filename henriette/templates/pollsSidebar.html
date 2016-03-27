@@ -1,30 +1,21 @@
-<h1>{{ question.question_text }}</h1>
-
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-
-{% if vote_info.voted %}
-    <h1>{{ vote_info.question.question_text }}</h1>
+<h6>{{ vote_question }}</h6>
+<form action="/#" method="post" />
+{% csrf_token %}
     <ul>
-    {% for choice in vote_info.question.choice_set.all %}
-        <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    {% for choice in vote_choices %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" /> {{ choice }}
+		<br>
     {% endfor %}
-    
+	<button type="submit" class="btn btn-default" aria-label="Right Align">
+		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+	</button>
     </ul>
-{% else %}
-    <form action"{ "." }" method="post">
-    {% csrf_token %}
-    {% for choice in vote_info.question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-    {% endfor %}
-    <input type="submit" value="Vote" />
-    </form>
-{% endif %}
 
+</form>
 
 
 {% comment %}
+glyphicon glyphicon-ok
 <!--     <form action="{% url 'startpage' question.id %}" method="post">
     {% csrf_token %}
     {% for choice in question.choice_set.all %}
@@ -33,4 +24,16 @@
     {% endfor %}
     <input type="submit" value="Vote" />
     </form> -->
+	
+	
+	    <form action"{ "." }" method="post">
+    {% csrf_token %}
+    {% for choice in vote_info.question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+    {% endfor %}
+    <input type="submit" value="Vote" />
+    </form>
+{% endif %}
 {% endcomment %}
+

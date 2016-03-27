@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from startpage.models import model_home, model_about
+from polls.models import Question, Choice
 from .forms import about_headline_form
 from django.forms import ModelForm
 from django.utils import timezone
@@ -11,17 +12,16 @@ import datetime
 
 # Create your views here.
 def home(request):
-    home_text = gethomeText()
-    
-    context = {"home_text": home_text,
-    }
-    return render(request, 'home.html', context=context)
+	home_text = model_home.objects.all()
+	vote_question = Question.objects.all()[0]#.ordered_by('-pk')[0]
+	vote_choices = Choice.objects.all()
+	context = {
+		'home_text': home_text,
+		'vote_question': vote_question,
+		'vote_choices': vote_choices,
+	}
+	return render(request, 'home.html', context=context)
 
-def gethomeText():
-    try:
-        return model_home.objects.get(pk=1)
-    except:
-        return model_home.objects.all()
 		
 def about(request):
 	if request.method == 'POST':
@@ -30,11 +30,9 @@ def about(request):
 	else:
 		form = about_headline_form()
 		about_text = model_about.objects.all()
-		#pk = list(range(len(about_text),0,-1))
 		context = {
 			'about_text': about_text,
 			'form': form,
-		#	'pk': pk
 		}
 		return render(request, 'about.html', context=context)
 	
@@ -53,7 +51,7 @@ def edit(request,pk):
 			'form': form,
 			'pk': pk,
 		}
-		return render(request, 'edit.html', context=context)
+		return render(request, 'about_edit.html', context=context)
 		
 def add(request):
 	if request.method == 'POST':
@@ -72,12 +70,15 @@ def add(request):
 	context = {
 		'about_text': about_text,
 		}
-	return render(request, 'add.html', context=context)
+	return render(request, 'about_add.html', context=context)
 	
 def delete(request,pk):
 	a = model_about.objects.get(pk=pk)
 	a.delete()
 	return HttpResponseRedirect('/about/')
+	
+#def polls():#
+#	polls_objects = 
 
 		
 class about_headline_form(ModelForm):
