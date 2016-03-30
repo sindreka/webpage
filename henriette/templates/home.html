@@ -8,9 +8,12 @@ home
 	<li class="active"><a href="\home">home</a></li>
 {% endblock %}
  {% block content %}
- <h1> {{home_text.home_headline}} </h1>
+ {% for text in home_text %}
+ <h2> {{text.home_headline}} </h2>
  
- <p>{{home_text.home_text}}</p> 
+ <p>{{text.home_text}}</p> 
+ 
+{% endfor %}
  
  {% endblock %} 
 
