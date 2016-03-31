@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from startpage.models import model_home, model_about
+from news.models import model_links
 from polls.models import Question, Choice
 from .forms import about_headline_form
 from django.forms import ModelForm
@@ -21,11 +22,13 @@ def home(request):
 	#	return HttpResponseRedirect('/about/')
 		
 	home_text = model_home.objects.all()
+	links_text = model_links.objects.all()
 	#vote_question = Question.objects.all()[0]#.ordered_by('-pk')[0]
 	#vote_choices = Choice.objects.all()
 	context = {
 		'home_text': home_text,
-		'vote_info': vote_info
+		'vote_info': vote_info,
+		'links_text': links_text,
 		#'vote_question': vote_question,
 		#'vote_choices': vote_choices,
 	}

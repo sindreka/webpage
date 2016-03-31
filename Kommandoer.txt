@@ -50,5 +50,5 @@ git push -u origin master
 Rekkefølge:
 
 Issues:
-Det er masse feil med linkene!
-Stemmer blir ikke lenger registrert!
+* Om man trykker på f5 etter å ha stemt bli det lagt til en stemme til
+* Om man ikke har valgt et alternativ og derretter stemmer så kommer det ingen feilmelding

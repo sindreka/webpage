@@ -88,11 +88,8 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
             {% block newsSidebar %}
-        Something is wrong with the newsSidebar
+        {% include "links_sidebar.html" %}
         {% endblock %}
-      <p><a href="#">Siste endringer</a></p>
-      <p><a href="#">2 av hver endring</a></p>
-      <p><a href="#">eller noe slikt</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
       {% block content %}
@@ -108,7 +105,7 @@
       nordlysvarsel
       </div>
       <div class="well">
-        {% include "pollsSidebar.html" %}
+        {% include "polls_sidebar.html" %}
       </div>
     </div>
   </div>
