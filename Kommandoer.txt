@@ -18,7 +18,8 @@ Videre arbeid:
 - Nettsiden må ha et mål!
 - designe "base.html" X
 - Nordlys varsel
-- Værmelding
+- Værmelding (via postnummer)
+http://www.yr.no/sted/Norge/postnummer/POSTNUMMER/varsel.xml
 - Innlogging
 - Stigespill-planlegger
 - Få siden ut på nettet!
@@ -28,10 +29,11 @@ Videre arbeid:
 - En liste over mine prosjekter.
 
 Del det som må gjøres opp i små mål. 
-*design
 *funksjonalitet
+*design
 *raspberry pi server
 *Nå siden via internett
+*Kunne oppdatere siden via github
 
 design:
 -layout
